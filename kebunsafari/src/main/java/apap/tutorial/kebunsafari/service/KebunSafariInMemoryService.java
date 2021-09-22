@@ -64,4 +64,11 @@ public class KebunSafariInMemoryService implements KebunSafariService {
         }
         return null;
     }
+
+    @Override
+    public void deleteAllKebunSafari() {
+        for (int i = 0; i < listKebunSafari.size(); i++) {
+            listKebunSafari.clear();
+        }
+    }
 }

@@ -15,7 +15,7 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import java.util.List;
 
 @Controller
-public class KebunSafariController implements ErrorController{
+public class KebunSafariController {
     @Autowired
     private KebunSafariService kebunSafariService;
 
@@ -106,9 +106,16 @@ public class KebunSafariController implements ErrorController{
         return "delete-kebun-safari";
     }
 
-    @RequestMapping("/error")
-    public String errorException() {
-        return "error";
+    @RequestMapping("/kebun-safari/deleteAll")
+    public String deleteAllKebunSafari(Model model) {
+        kebunSafariService.deleteAllKebunSafari();
+
+        return "deleteAll-kebun-safari";
     }
+
+//    @RequestMapping("/error")
+//    public String errorException() {
+//        return "error";
+//    }
 
 }

@@ -17,4 +17,6 @@ public interface KebunSafariService {
 
     String deleteKebunSafariById(String idKebunSafari);
 
+    void deleteAllKebunSafari();
+
 }
