@@ -2,6 +2,28 @@
 ## Authors
 * **Ikmal Almuhtadi Rajab** - *1906308324* - *APAP - A*
 
+## Tutorial 2
+### What I have learned today
+--> Pada tutorial kali ini saya mempelajari lebih dalam penggunaan framework spring karena telah mengimplementasikan method-method sendiri. Karena hal tersebut saya menjadi lebih paham bagaimana konsep MVC bekerja ketika mempassing data dari satu tempat ke tempat lainnya. Pemahaman saya untuk saat ini adalah di Model adalah dimana tempat data model dibuat dan disimpan, yang dengan begitu ketika kita ingin membuat logic untuk suatu program di Service kita akan menggunakan method getter & setter yang telah dibuat di Model. Setelah logic berhasil dibuat di Service, kita akan memanggil logic tersebut di Controller yang akan memproses routing url, passing data yang diproses ke HTML, dan juga akan mengembalikan halaman HTML yang telah dibuat.
+
+Pertanyaan 1: Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut setelah menjalankan program: http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung% 20Fasilkom&noTelepon=081xxx, Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+--> Akan muncul white label error page, dengan pesan “This application has no explicit mapping for /error, so you are seeing this as a fallback”. Hal tersebut terjadi karena html “add-kebun-safari” belum dibuat. Untuk mengatasi error tersebut kita harus membuat file HTML “add-kebun-safari” di folder template.
+
+Pertanyaan 2: Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat
+--> Anotasi @Autowired digunakan agar kita tidak perlu membuat argumen untuk constructor ataupun method setter, hal tersebut dapat terjadi karena anotasi ini bekerja dengan cara melihat isi package yang sedang running, kemudian akan mencari clas-clas dengan anotasi seperti @Controller, @Service, @Component, dan @Repository. Lalu akan dilakukan inisiasi terhadap class-class tersebut dan akan menginjeksi dependenciesnya. Oleh karena itu anotasi @Autowires bekerja dengan mengimplementasi dari konsep dependency injection.
+
+Pertanyaan 3: Cobalah untuk menambahkan sebuah Kebun dengan mengakses link berikut: http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung% 20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+--> Muncul white label error page dan terdapat pesan “Required request parameter 'noTelepon' for method parameter type String is not present”. Hal tersebut terjadi karena dari link yang diberikan belum terdapat parameter “noTelepon”. Oleh karena itu, kita harus menambahkan noTelepon sesuai dengan parameter yang diminta oleh program.
+
+Pertanyaan 4: Jika Papa APAP ingin melihat Kebun Safari dengan nama Papa APAP, link apa yang harus diakses?
+—-> Untuk melihat Kebun Safari dengan nama Papa APAP kita dapat menakses dengan url sebagai berikut : http://localhost:8080/kebun-safari?id=1. Kita menggunakan URL tersebut karena pada Controller kita menggunakan @RequestParam. Oleh karena itu, kita harus menambahkan “?id=1”, dimana Kebun Safari dengan nama Papa APAP memiliki ID = 1.
+
+Pertanyaan 5: Tambahkan 1 contoh Kebun Safari lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/ , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
+→ Saya mencoba menambahkan Kebun Safari lain dengan nama Ikmal’s Zoo, alamat Puncak Bogor, dan nomor telepon 08112234. Setelah saya buat dan membuka http://localhost:8080/, Data baru telah berhasil dibuat dan ditampilkan. Berikut link untuk screenshotnya : https://ibb.co/pRgZfg1
+
+### Referensi
+- https://software.endy.muhardin.com/java/memahami-dependency-injection/
+
 ---
 ## Tutorial 1
 ### What I have learned today
@@ -42,8 +64,10 @@
     untuk mengekstrak data yang ditemukan dalam parameter query, ex : "/is-palindrome?kalimat=isi". Anotasi ini akan lebih baik digunakan ketika ingin mengikat parameter request ke argumen pada handler method secara otomatis. Sedangkan untuk anotasi @PathVariable digunakan untuk mengekstrak data dari template URI yang contohnya adalah RESTful web services. Anotasi ini akan 
     lebih baik kita gunakan ketuka ingin melakukan customization untuk mendapatkan data karena spring MVC mendukung penyesuaian pada URL.
 ### What I did not understand
-- [ ] Kenapa saya harus belajar APAP?
-- [ ] Kenapa untuk project skala enterprise, spring framework meruapakan salah satu framework yang direkomendasikan dan kita gunakan?
+- [x] Kenapa saya harus belajar APAP?
+--> APAP berguna sekali untuk melatih kita untuk melakukan pembuatan program dengan mengikuti prinsip OOP, sehingga data akan lebih mudah untuk dibaca, diupgarde, dan dimanage. Hal ini akan sangat berguna untuk pembuatan program atau sistem dengan skala yang besar dimana apabila tidak dibuat dengan prinsip OOP akan lebih sulit untuk memanage dan mengupdate code yang ada saat ini.
+- [x] Kenapa untuk project skala enterprise, spring framework meruapakan salah satu framework yang direkomendasikan dan kita gunakan?
+--> Karena untuk skala enterprise kompleksitas programnya sudah cukup besar, dan Spring bekerja dengan prinsip OOP dimana program akan lebih mudah dimanage dan dikembangkan kedepannya.
 ### Referensi
 - https://www.ibm.com/garage/method/practices/think/tool_github_issues/
 - https://guide.quickscrum.com/git-guide/
