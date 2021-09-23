@@ -2,6 +2,40 @@
 ## Authors
 * **Ikmal Almuhtadi Rajab** - *1906308324* - *APAP - A*
 
+## Tutorial 3
+### What I have learned today
+Pada lab minggu ini saya belajar mengenai pengkoneksian dengan database MySQL dan juga penggunaan JPA repository. Saya mengalami cukup kesulitan pada lab ini karena kompleksitas program sudah semakin bertambah dan banyaknya passing antar MVC yang ada, dimana hal tersebut saya belum sepenuhnya paham karena saat pengerjaan sering terjadi error.
+
+1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model berikut:
+@AllArgsConstructor → akan digunakan untuk men-generate constructor dengan satu parameter untuk setiap field di class yang tersebut
+@NoArgsConstructor → akan digunakan untuk men-generate constructor tanpa parameter
+@Setter → akan men-generate default method setter secara otomatis
+@Getter → akan men-generate default method getter secara otomatis
+@Entity → akan mendefine nama yang akan dipakai untuk entity
+@Table → akan mendefine nama table yang digunakan di database
+
+2. Pada class CabangDB, terdapat method findByNoCabang, apakah kegunaan dari method tersebut?
+→ Method tersebut berfungsi untuk mencari cabang berdasarkan nomor cabangnya, dimana nomor cabangnya merupakan parameternya. Method ini kita gunakan salah satunya ketika mendefine suatu CabangModel.
+
+3. Jelaskan perbedaan kegunaan dari anotasi :
+@JoinTable → akan digunakan ketika ingin membuat sebuah table baru dan table tersebut memiliki relasi dengan table lainnya, bisa untuk relasi many to many seperti yang dilakukan pada lab saat ini.
+@JoinColumn → akan digunakan untuk mendefine composite foreign keys. Anotasi ini akan mengelompokkan anotasi JoinColumn lainnya yang memiliki hubungan yang sama.
+
+4. Pada class PegawaiModel, digunakan anotasi @JoinColumn pada atribut cabang, apa kegunaan dari name, referencedColumnName, dan nullable dalam anotasi tersebut? dan apa perbedaan nullable dan penggunaan anotasi @NotNull
+→ name merupakan nama kolom yang menjadi foreign key untuk PegawaiModel, lalu referencedColumn yang menunjukkan reference dari foreign key tersebut. Untuk nullable sendiri adalah tanda yang akan menunjukkan bahwa tidak terdapat  null untuk kondisi true maupun false. Perbedaan nullable dengan anotasi NotNull adalah jika NotNull akan menjadi suatu batasan yang tidak akan memberikan memperbolehkan null values terhadap constrained field, sedangkan nullable hanya menjadi tanda untuk memberikan kita informasi apakah suatu variabel atau method mengandung null.
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+FetchType.LAZY → kegunaannya adalah untuk hanya mengambil data ketika diakses atau sedang dibutuhkan. Contohnya ketika kita ingin mengambil data dari seorang pegawai dari database perusahaan
+FetchType.EAGER → ini merupakan kebalikan dari FetchType.LAZY, dimana ketika kita membutuhkan data, maka akan diambil secara keseluruhan saat parent nya diambil. Contohnya ketika kita membutuhkan data terkait database perusahaan, dimana secara otomatis kita akan data pegawainya juga.
+
+Referensi :
+https://javabydeveloper.com/category/lombok/
+https://docs.jboss.org/hibernate/jpa/2.1/api/javax/persistence/JoinTable.html
+https://docs.jboss.org/hibernate/jpa/2.1/api/javax/persistence/JoinColumns.html
+https://www.baeldung.com/java-bean-validation-not-null-empty-blank
+https://stackoverflow.com/questions/2990799/difference-between-fetchtype-lazy-and-eager-in-java-persistence-api
+
+---
 ## Tutorial 2
 ### What I have learned today
 --> Pada tutorial kali ini saya mempelajari lebih dalam penggunaan framework spring karena telah mengimplementasikan method-method sendiri. Karena hal tersebut saya menjadi lebih paham bagaimana konsep MVC bekerja ketika mempassing data dari satu tempat ke tempat lainnya. Pemahaman saya untuk saat ini adalah di Model adalah dimana tempat data model dibuat dan disimpan, yang dengan begitu ketika kita ingin membuat logic untuk suatu program di Service kita akan menggunakan method getter & setter yang telah dibuat di Model. Setelah logic berhasil dibuat di Service, kita akan memanggil logic tersebut di Controller yang akan memproses routing url, passing data yang diproses ke HTML, dan juga akan mengembalikan halaman HTML yang telah dibuat.
