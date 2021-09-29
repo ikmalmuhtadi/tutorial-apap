@@ -24,9 +24,19 @@ public class CabangServiceImpl implements CabangService{
         cabangDb.save(cabang);
     }
 
+//    @Override
+//    public void updateCabang(CabangModel cabang) {
+//        cabangDb.save(cabang);
+//
+//    }
+
     @Override
-    public void updateCabang(CabangModel cabang) {
-        cabangDb.save(cabang);
+    public boolean updateCabang(CabangModel cabang) {
+        if(cabangDb.findByNamaCabang(cabang.getNamaCabang()) == null){
+            cabangDb.save(cabang);
+            return true;
+        }
+        return false;
 
     }
 
@@ -43,6 +53,15 @@ public class CabangServiceImpl implements CabangService{
     @Override
     public CabangModel getCabangByNoCabang(Long noCabang) {
         Optional<CabangModel> cabang= cabangDb.findByNoCabang(noCabang);
+        if(cabang.isPresent()){
+            return cabang.get();
+        }
+        return null;
+    }
+
+    @Override
+    public CabangModel getCabangByNamaCabang(String namaCabang) {
+        Optional<CabangModel> cabang= cabangDb.findByNamaCabang(namaCabang);
         if(cabang.isPresent()){
             return cabang.get();
         }

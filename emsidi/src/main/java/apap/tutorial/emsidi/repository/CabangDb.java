@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface CabangDb extends JpaRepository<CabangModel, Long>{
     Optional<CabangModel> findByNoCabang(Long noCabang);
+    Optional<CabangModel> findByNamaCabang(String namaCabang);
 }

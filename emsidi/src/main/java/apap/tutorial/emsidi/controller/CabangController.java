@@ -64,14 +64,18 @@ public class CabangController {
         model.addAttribute("listPegawai", listPegawai);
         return "view-cabang";
     }
-    @GetMapping("/cabang/update/{noCabang}")
+    @GetMapping("/cabang/update/{namaCabang}")
     public String updateCabangForm(
-            @PathVariable Long noCabang,
+            @PathVariable String namaCabang,
             Model model
     ) {
-        CabangModel cabang = cabangService.getCabangByNoCabang(noCabang);
-        model.addAttribute( "cabang", cabang);
-        return "form-update-cabang" ;
+        CabangModel cabang = cabangService.getCabangByNamaCabang(namaCabang);
+        boolean flag = cabangService.updateCabang(cabang);
+        if (flag == true) {
+            model.addAttribute( "cabang", cabang);
+            return "form-update-cabang" ;
+        }
+        return "error";
     }
     @PostMapping("/cabang/update")
     public String updateCabangSubmit(
