@@ -4,6 +4,20 @@
 
 ## Tutorial 3
 ### What I have learned today
+Untuk tutorial kali ini saya telah belajar pemanfaat fragment untuk bisa menyesuaikan hal seperti navbar pada setiap halaman. Lalu saya juga belajar untuk bisa menghandle if else pada file HTML secara lebih mendalam. Lab ini cukup membuat saya bingung karena sering sekali terjadi kesalahan routing pada file HTML yang saya buat hehe.
+
+1. Jelaskan perbedaan th:include dan th:replace!
+→  th:include dan th:replace merupakan dua dari banyak jenis atribut yang disediakan oleh Thymeleaf yang dapat kita gunakan. Kedua hal tersebut memiliki hubungan dengan fragment. Dimana fragment sendiri adalah sebagian potongan kode yang bisa kita reuse di banyak halaman, contohnya adalah untuk bagian navbar dan footer. Perbedaan antara th:include dan th:replace adalah jika th:include akan memasukkan fragment yang telah ditentukan sebagai body pada tag hostnya, namun tag fragment nya tidak ikut dimasukkan. Sedangkan untuk th:replace, atribut ini akan menghapus kemudian menggantikan tag host, lalu akan menambahkan fragment yang ditentukan.
+
+2. Jelaskan apa fungsi dari th:object!
+→ Atribut th:object akan berfungsi untuk menangani pada bagian form input dari user yang selanjutnya digunakan untuk menentukan objek model yang akan digunakan untuk mengumpulkan data dari form.
+
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+→ Kedua simbol tersebut merupakan sebuah variable expression, dimana perbedaanya adalah untuk simbol * akan mengevaluasi ekspresi hanya pada objek yang dipilih bukan dari keseluruhan variable maps. Lalu untuk simbol $ akan mengevaluasi ekspresi terhadap keseluruhan variable maps. Apabila terdapat kondisi dimana tidak ada objek yang dipilih, maka untuk kedua simbol ini akan melakukan hal yang sama.
+
+---
+## Tutorial 3
+### What I have learned today
 Pada lab minggu ini saya belajar mengenai pengkoneksian dengan database MySQL dan juga penggunaan JPA repository. Saya mengalami cukup kesulitan pada lab ini karena kompleksitas program sudah semakin bertambah dan banyaknya passing antar MVC yang ada, dimana hal tersebut saya belum sepenuhnya paham karena saat pengerjaan sering terjadi error.
 
 1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model berikut:
