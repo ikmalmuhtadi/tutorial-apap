@@ -16,23 +16,23 @@
         <br>
         <form th:action="@{/cabang/add}" th:object="${cabang}" method="POST">
           Nama Cabang : <br>
-          <input required class="form-control" type="text" name="namaCabang"/>
+          <input required class="form-control" type="text" name="namaCabang" th:value="*{namaCabang}"/>
           <br><br>
 
           Alamat : <br>
-          <input required class="form-control" type="text" name="alamatCabang"/>
+          <input required class="form-control" type="text" name="alamatCabang" th:value="*{alamatCabang}"/>
           <br><br>
 
           Nomor Telepon : <br>
-          <input required class="form-control" type="text" name="noTeleponCabang"/>
+          <input required class="form-control" type="text" name="noTeleponCabang" th:value="*{noTeleponCabang}"/>
           <br><br>
 
           Waktu Buka : <br>
-          <input required class="form-control" type="time" name="waktuBuka" />
+          <input required class="form-control" type="time" name="waktuBuka" th:value="*{waktuBuka}"/>
           <br><br>
 
           Waktu Tutup : <br>
-          <input required class="form-control" type="time" name="waktuTutup" />
+          <input required class="form-control" type="time" name="waktuTutup" th:value="*{waktuTutup}"/>
           <br><br>
 
           <table class="table">
@@ -40,20 +40,27 @@
             <tr>
               <th>Nama Menu</th>
               <th>
-                <a class="btn btn-sm btn-primary" th:href="@{~/cabang/add/tambah-baris}" >Tambah Row</a>
+
+                <input class="btn btn-primary" type="submit" name="addRow" value ="Tambah Row">
               </th>
             </tr>
             </thead>
             <tbody>
-              <tr th:each="i : ${#numbers.sequence(1, counter)}">
+
+                <tr th:each="menu, iterationStatus : *{listMenu}">
                 <td>
-                  <select class="form-control" name="selectMenu" th:field="*{listMenu}">
-                    <option th:each="menu, iterationStatus : ${listMenu}"
-                    th:text="${menu.namaMenu}" th:value="${menu.noMenu}"></option>
+                  <select th:field = "*{listMenu[__${iterationStatus.index}__].noMenu}" class="form-control">
+                    <option value="">Pilih Menu</option>
+                    <option th:each ="menu: ${listMenu}"
+                            th:value = "${menu.noMenu}"
+                            th:text = "${menu.namaMenu}">
+                    </option>
                   </select>
+
                 </td>
                 <td>
-                  <a class="btn btn-sm btn-danger" th:href="@{~/cabang/add/delete-baris}">Hapus</a>
+
+                  <button type="submit" class="btn btn-danger" name="deleteRow" th:value ="${iterationStatus.index}">Hapus</button>
                 </td>
               </tr>
             </tbody>

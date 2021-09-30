@@ -13,8 +13,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+
 
 @Controller
 public class CabangController {
@@ -37,26 +42,40 @@ public class CabangController {
         return "form-add-cabang";
     }
 
-    @GetMapping("/cabang/add/tambah-baris")
-    public String addCabangFormTambahBaris(
+
+    @PostMapping(value = "/cabang/add", params = {"addRow"})
+    public String addCabangTambahBaris(
             @ModelAttribute CabangModel cabang,
-            Model model) {
+            BindingResult bindingResult,
+            Model model
+    ){
         List<MenuModel> listMenu = menuService.getListMenu();
+        if(cabang.getListMenu()==null){
+            cabang.setListMenu(new ArrayList<MenuModel>());
+        }
+        List<MenuModel> listMenuRow = cabang.getListMenu();
+        listMenuRow.add(new MenuModel());
+        model.addAttribute("cabang", cabang);
         model.addAttribute("listMenu", listMenu);
-        model.addAttribute("counter", counterBaris += 1);
-        model.addAttribute("cabang", new CabangModel());
         return "form-add-cabang";
     }
 
-    @GetMapping("/cabang/add/delete-baris")
-    public String addCabangFormDeleteBaris(
+    @RequestMapping(value = "/cabang/add", method = RequestMethod.POST, params = {"deleteRow"})
+    public String addMenuCabangDeleteBaris(
             @ModelAttribute CabangModel cabang,
-            Model model) {
+            final BindingResult bindingResult,
+            Model model,
+            final HttpServletRequest request
+    ){
+
         List<MenuModel> listMenu = menuService.getListMenu();
+
+        final Integer numRow = Integer.valueOf(request.getParameter("deleteRow"));
+        cabang.getListMenu().remove(numRow.intValue());
+        model.addAttribute("cabang", cabang);
         model.addAttribute("listMenu", listMenu);
-        model.addAttribute("counter", counterBaris -= 1);
-        model.addAttribute("cabang", new CabangModel());
         return "form-add-cabang";
+
     }
 
     @PostMapping("/cabang/add")
