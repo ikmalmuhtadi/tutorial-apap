@@ -4,11 +4,14 @@ import apap.tutorial.emsidi.model.CabangModel;
 import apap.tutorial.emsidi.model.PegawaiModel;
 import apap.tutorial.emsidi.service.CabangService;
 import apap.tutorial.emsidi.service.PegawaiService;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalTime;
 
 
 @Controller
@@ -84,4 +87,27 @@ public class PegawaiController {
         return "error";
 
     }
+
+    @PostMapping ("/pegawai/delete")
+    String deletePegawaiSubmit(
+            @ModelAttribute CabangModel cabang,
+            Model model
+    ){
+//        LocalTime now = LocalTime.now();
+//        if(now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())) {
+//            for (PegawaiModel pegawai: cabang.getListPegawai()) {
+//                pegawaiService.deletePegawai(pegawai);
+//            }
+//            return "delete-pegawai";
+//        }
+//        return "error";
+        System.out.println("INI LIST PEGAWAI");
+        System.out.println(cabang.getListPegawai());
+        for (PegawaiModel pegawai: cabang.getListPegawai()) {
+                pegawaiService.deletePegawai(pegawai);
+                return "delete-pegawai";
+            }
+        return "error";
+    }
+
 }

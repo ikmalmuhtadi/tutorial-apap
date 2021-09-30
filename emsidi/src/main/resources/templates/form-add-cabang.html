@@ -2,8 +2,12 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
   <title>Emsidi</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"></head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+  <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
 <body>
+<nav th:replace="fragments/fragment :: navbar('Home')"></nav>
 <div class="container">
   <div class="card m-4 p-4">
     <div class="card-body">
@@ -31,6 +35,31 @@
           <input required class="form-control" type="time" name="waktuTutup" />
           <br><br>
 
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Nama Menu</th>
+              <th>
+                <a class="btn btn-sm btn-primary" th:href="@{~/cabang/add/tambah-baris}" >Tambah Row</a>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr th:each="i : ${#numbers.sequence(1, counter)}">
+                <td>
+                  <select class="form-control" name="selectMenu" th:field="*{listMenu}">
+                    <option th:each="menu, iterationStatus : ${listMenu}"
+                    th:text="${menu.namaMenu}" th:value="${menu.noMenu}"></option>
+                  </select>
+                </td>
+                <td>
+                  <a class="btn btn-sm btn-danger" th:href="@{~/cabang/add/delete-baris}">Hapus</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
           <button class="btn btn-primary" type="submit">Submit</button>
           <a class="btn btn-primary" href="/">Cancel</a>
         </form>

@@ -1,10 +1,13 @@
 package apap.tutorial.emsidi.controller;
 
 import apap.tutorial.emsidi.model.CabangModel;
+import apap.tutorial.emsidi.model.MenuModel;
 import apap.tutorial.emsidi.model.PegawaiModel;
 import apap.tutorial.emsidi.service.CabangService;
+import apap.tutorial.emsidi.service.MenuService;
 import apap.tutorial.emsidi.service.PegawaiService;
 import ch.qos.logback.core.net.SyslogOutputStream;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,13 +18,43 @@ import java.util.List;
 
 @Controller
 public class CabangController {
-
+    private int counterBaris;
     @Qualifier("cabangServiceImpl")
     @Autowired
     private CabangService cabangService;
 
+    @Qualifier("menuServiceImpl")
+    @Autowired
+    MenuService menuService;
+
     @GetMapping("/cabang/add")
     public String addCabangForm(Model model){
+        counterBaris = 1;
+        List<MenuModel> listMenu = menuService.getListMenu();
+        model.addAttribute("cabang", new CabangModel());
+        model.addAttribute("listMenu", listMenu);
+        model.addAttribute("counter", counterBaris);
+        return "form-add-cabang";
+    }
+
+    @GetMapping("/cabang/add/tambah-baris")
+    public String addCabangFormTambahBaris(
+            @ModelAttribute CabangModel cabang,
+            Model model) {
+        List<MenuModel> listMenu = menuService.getListMenu();
+        model.addAttribute("listMenu", listMenu);
+        model.addAttribute("counter", counterBaris += 1);
+        model.addAttribute("cabang", new CabangModel());
+        return "form-add-cabang";
+    }
+
+    @GetMapping("/cabang/add/delete-baris")
+    public String addCabangFormDeleteBaris(
+            @ModelAttribute CabangModel cabang,
+            Model model) {
+        List<MenuModel> listMenu = menuService.getListMenu();
+        model.addAttribute("listMenu", listMenu);
+        model.addAttribute("counter", counterBaris -= 1);
         model.addAttribute("cabang", new CabangModel());
         return "form-add-cabang";
     }
@@ -58,7 +91,6 @@ public class CabangController {
         CabangModel cabang=cabangService.getCabangByNoCabang(noCabang);
 
         List<PegawaiModel> listPegawai= cabang.getListPegawai();
-
 
         model.addAttribute("cabang", cabang);
         model.addAttribute("listPegawai", listPegawai);
