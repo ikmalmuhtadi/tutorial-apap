@@ -11,6 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,6 +19,7 @@ import java.io.Serializable;
 @Getter
 @Entity
 @Table(name="pegawai")
+@JsonIgnoreProperties(value={"cabang"},allowSetters = true)
 public class PegawaiModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +33,9 @@ public class PegawaiModel implements Serializable {
     @NotNull
     @Column(name = "jenis_kelamin", nullable = false)
     private int jenisKelamin;
+
+    @Column(name = "umur", nullable = true)
+    private Integer umur;
 
     //Relasi dengan CabangModel
     @ManyToOne(fetch = FetchType.EAGER, optional = false)

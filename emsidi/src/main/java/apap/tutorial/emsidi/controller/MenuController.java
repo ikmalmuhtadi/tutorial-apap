@@ -1,7 +1,6 @@
 package apap.tutorial.emsidi.controller;
 
 import apap.tutorial.emsidi.model.MenuModel;
-import apap.tutorial.emsidi.service.CabangService;
 import apap.tutorial.emsidi.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
