@@ -86,6 +86,17 @@ public class PegawaiRestController {
         }
     }
 
+    @GetMapping(value = "/pegawai/jenisKelamin/{jenisKelamin}")
+    private List<PegawaiModel> retrievePegawaibyJenisKelamin(@PathVariable("jenisKelamin") int jenisKelamin){
+        try{
+            return pegawaiRestService.retrieveListPegawaibyJenisKelamin(jenisKelamin);
+        } catch (NoSuchElementException e){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Pegawai Not Found."
+            );
+        }
+    }
+
 //    @GetMapping(value = "/cabang/{noCabang}/status")
 //    private Mono<String> getStatus(@PathVariable("noCabang") Long noCabang) {
 //        return cabangRestService.getStatus(noCabang);

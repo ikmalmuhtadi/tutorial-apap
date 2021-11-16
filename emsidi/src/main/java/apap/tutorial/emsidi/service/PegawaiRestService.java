@@ -15,5 +15,6 @@ public interface PegawaiRestService {
     void deletePegawai(Long noPegawai);
 //    PegawaiModel prediksiUmurByNama(Long noPegawai);
     PegawaiModel getUmurPegawai(Long noPegawai);
+    List<PegawaiModel> retrieveListPegawaibyJenisKelamin(int jenisKelamin);
 //    Mono<PegawaiDetail> postStatus();
 }
