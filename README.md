@@ -2,6 +2,27 @@
 ## Authors
 * **Ikmal Almuhtadi Rajab** - *1906308324* - *APAP - A*
 
+##Tutorial  6
+### What I have learned today
+Pada tutorial hari ini saya belajar mengenai sistem pengaman yang telah disediakan Spring, dimana kita dapat mengatur masalah login/logout dan juga memberi role untuk user tertentu.
+
+### 1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?  
+—> Otentikasi adalah proses verifikasi pengguna dalam mengecek kesesuaian user’s credentials, sedangkan otorisasi adalah proses verifikasi hak user  berdasarkan role-nya untuk masuk ke suatu halaman atau menggunakan sebuah fitur yang ada. Implementasi yang saya lakukan untuk proses otentikasi adalah ketik proses login dimana pengguna harus memasukkan username dan password yang sesuai baru dapat masuk ke halaman selanjutnya. Lalu untuk proses otorisasi adalah pemberian role kepada pengguna seperti manajer yang dapat menambahkan menu di cabang, user yang dapat mengubah password, dan lainnya.
+
+### 2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya. 
+—> BCryptPasswordEncoder untuk dapat meng-encode password yang menggunakan fungsi hashing. BCryptPasswordEncoder bekerja dengan menjadi encoder satu arah, dimana password tidak bisa di-decrypt. Proses otentikasi akan berhasil dengan me re-encode password dan akan mengecek kesesuaian hasil encode yang dilakukan sama dengan hasil encode yang ada di database. 
+
+### 3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa demikian? 
+—> Dari proses yang dilakukan keduanya cenderung akan lebih aman menggunakan hashing karena hashing bekerja dengan satu arah, sehingga password akan lebih sulit untuk dapat di decrypt. 
+
+### 4. Jelaskan secara singkat apa itu UUID beserta penggunaannya!  
+—> Universally Unique Identifier (UUID) merupakan  sebuah nilai yang dipakai untuk identifikasi, dimana  UUID memiliki panjang 128 bit walau biasanya hanyak direpresentasikan sepanjang 32 heksadesimal. UUID biasa digunakan untuk tujuan praktis dalam men-generate sebuah nilai random.
+
+### 5. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut  padahal kita sudah memiliki class UserRoleServiceImpl.java?  
+—> Class tersebut bergunak untuk membuat user’s credentials seperti username, role, password, dll yang akan berguna dalam proses otorisasi. Class ini harus ada karena fungsingnya sebagai penerapan konsep otorisasi untuk dapat menentukan hak-hak pengguna berdasarkan role-nya, dimana hal tersebut tidak dapat dilakukan oleh class lainnya.
+
+---
+
 ## Tutorial 5
 ### What I have learned today
 Pada tutorial kali ini saya telah belajar mengenai perbedaan web service dengan Rest API. Selain itu, saya juga belajar mengenai penggunaan dan pemanggilan API di spring menggunakan Postman.
