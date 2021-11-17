@@ -2,6 +2,21 @@
 ## Authors
 * **Ikmal Almuhtadi Rajab** - *1906308324* - *APAP - A*
 
+## Tutorial 5
+### What I have learned today
+Pada tutorial kali ini saya telah belajar mengenai perbedaan web service dengan Rest API. Selain itu, saya juga belajar mengenai penggunaan dan pemanggilan API di spring menggunakan Postman.
+
+1. Apa itu Postman? Apa kegunaannya? 
+ —> Postman adalah sebuah appliaction programing interface (API) development tool yang akan memudahkan user untuk melakukan pengetestan web services. Antara lain di Postman kita dapat membuat, menguji, membagikan, mendokumentasikan, dan memodifikasi API. 
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty. 
+ —> @JsonIgnoreProperties digunakan pada level class untuk memberi tanda sebuah properti untuk dihiraukan. Anotasi ini digunakan utk urusan serialisasi properti atau mengabaikan pemrosesan dalam membaca properti JSON ke objek Java atau yang bisa disebut deserialisasi JSON. Sedangkan ketika kita mendapatkan data JSON dari objek Java, hal tersebut disebut serialisasi JSON. @JsonProperty akan dapat mengubah visibilitas properti menggunakan elemen aksesnya dalam proses serialisasi dan deserialisasi JSON. 
+3. Apa kegunaan atribut WebClient? 
+ —> WebClient merupakan sebuah interface yang akan berguna sebagai access point utama dari HTTP requests, selain itu WebClient akan berfungsi sebagai pengatur dalam proses request dan response suatu URL. 
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya? 
+ —> ResponseEntity akan berguna untuk mewakili seluruh respons HTTP dan juga akan mengkonfigurasi response HTTP secara keseluruhan. Sedangkan BindingResult biasanya berisi informasi tentang kesalahan, misalkan field yang diperlukan atau adanya ketidakcocokan jenis atau kesalahan ketika memanggil suatu method.
+ 
+--- 
+
 ## Tutorial 4
 ### What I have learned today
 Untuk tutorial kali ini saya telah belajar pemanfaat fragment untuk bisa menyesuaikan hal seperti navbar pada setiap halaman. Lalu saya juga belajar untuk bisa menghandle if else pada file HTML secara lebih mendalam. Lab ini cukup membuat saya bingung karena sering sekali terjadi kesalahan routing pada file HTML yang saya buat hehe.
