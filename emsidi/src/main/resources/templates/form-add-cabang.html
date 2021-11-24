@@ -35,7 +35,7 @@
           <input required class="form-control" type="time" name="waktuTutup" th:value="*{waktuTutup}"/>
           <br><br>
 
-          <table class="table">
+          <table class="table" th:if="${role}=='Manajer'">
             <thead>
             <tr>
               <th>Nama Menu</th>

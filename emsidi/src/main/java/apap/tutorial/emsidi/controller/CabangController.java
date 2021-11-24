@@ -3,8 +3,10 @@ package apap.tutorial.emsidi.controller;
 import apap.tutorial.emsidi.model.CabangModel;
 import apap.tutorial.emsidi.model.MenuModel;
 import apap.tutorial.emsidi.model.PegawaiModel;
+import apap.tutorial.emsidi.model.UserModel;
 import apap.tutorial.emsidi.service.CabangService;
 import apap.tutorial.emsidi.service.MenuService;
+import apap.tutorial.emsidi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,9 @@ public class CabangController {
     @Qualifier("menuServiceImpl")
     @Autowired
     MenuService menuService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/cabang/add")
     public String addCabangForm(Model model){
@@ -70,6 +75,12 @@ public class CabangController {
         cabang.getListMenu().remove(numRow.intValue());
         model.addAttribute("cabang", cabang);
         model.addAttribute("listMenu", listMenu);
+
+        String username = request.getRemoteUser();
+        UserModel user = userService.getUserByUsername(username);
+        String role = user.getRole().getRole();
+        model.addAttribute("role", role);
+
         return "form-add-cabang";
 
     }
@@ -102,6 +113,7 @@ public class CabangController {
     public String viewDetailCabang(
             @RequestParam(value = "noCabang") Long noCabang,
             Model model
+
     ){
         CabangModel cabang=cabangService.getCabangByNoCabang(noCabang);
 
