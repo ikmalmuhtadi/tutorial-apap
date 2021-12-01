@@ -2,7 +2,39 @@
 ## Authors
 * **Ikmal Almuhtadi Rajab** - *1906308324* - *APAP - A*
 
-##Tutorial  6
+## Tutorial  7
+
+### 	1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.  
+- Latihan Nomor 1
+—> Untuk nomor satu saya menambahkan method  handleDeleteItemFromCart, dimana keseluruhan kode mirip seperti saat add item, namun untuk delete saya menggunakan method .splice() dimana index  mengikuti  sesuai targetInd, sehingga index item yang diklik akan dikeluarkan dari list newItems. Untuk kondisi delete kita harus membuatnya lebih besar daari -1 karena nilai status item yang berada di cart adalah 0.
+![alt text](https://i.ibb.co/f877Hm3/Screen-Shot-2021-11-24-at-21-27-51.png)
+
+- Latihan Nomor 2
+—> Untuk nomor dua pertama2 saya membuat variabel let newBalance yang berisi balance dari state tersebut. Selanjutnya saya menambahkan newBalance = newBalance - newItem.price; untuk mengurangi balance yang ada saat ini dengan harga item yang kita tambahkan ke cart dan terakhir menambahkan this.setState({balance: newBalance});
+untuk mengatur balance state tersebut dengan nilai balance terkini
+![alt text](https://i.ibb.co/HtqpHzG/Screen-Shot-2021-11-24-at-21-38-21.png)
+
+
+- Latihan Nomor 3
+—> Untuk nomor tiga saya membuat if baru di dalam if yang pertama dimana akan mengecek balance kita yang ada sekarang dengan harga item yang ingin ditambahkan ke cart, apabila balance kita kurang dari harga item tersebut maka akan muncul alert yang menandakan balance tidak cukup dan proses diselesaikan agar tidaak berlanjut ke proses berikutnya
+![alt text](https://i.ibb.co/HtqpHzG/Screen-Shot-2021-11-24-at-21-38-21.png)
+
+
+### 	2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props? 
+
+—> Perbedaan utama antara props dan state adalah state itu internal dan dikendalikan oleh komponen itu sendiri sedangkan props bersifat eksternal dan dikendalikan oleh apa pun yang membuat komponen tersebut.
+
+### 3. Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam React? sebutkan alasannya.  
+—> Component adalah potongan kode kecil yang dapat di gunakan kembali (reusable) yang bertujuan agar user interface terpisah menjadi bagian-bagian kecil dan di satukan dan di render menjadi sebuah kode HTML. Dengan begitu kita dapat dengan mudah me-reuse code yang telah kita buat dan digunakan dimana saja sesuai dengan kebutuhan kita dengan saat mudah. Maka sebaiknya kita selalu menggunakan compnent untuk efisiensi pekerjaan kita. 
+### 4. Apa perbedaan class component dan functional component?  
+—> Functional component hanya bisa menggunakan props itu sebabnya function component disebut stateless component atau biasa digunakan juga sebagai UI Component (komponen yang menangani tampilan). Sedangkan Class component dapat menggunakan state dan props
+
+### 5. Dalam react, apakah perbedaan component dan element?  
+—> React Element  adalah objek sederhana yang menggambarkan DOM dan atribut atau propertinya. Hal tersebut adalah objek deskripsi yang tidak dapat diubah dan tidak dapat menerapkan metode apa pun padanya. React Component adalah fungsi atau kelas yang menerima input dan mengembalikan elemen React.
+
+
+--
+## Tutorial  6
 ### What I have learned today
 Pada tutorial hari ini saya belajar mengenai sistem pengaman yang telah disediakan Spring, dimana kita dapat mengatur masalah login/logout dan juga memberi role untuk user tertentu.
 
