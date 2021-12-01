@@ -2,6 +2,40 @@
 ## Authors
 * **Ikmal Almuhtadi Rajab** - *1906308324* - *APAP - A*
 
+## Tutorial  8
+### What I have learned today
+Saya belajar mengenai react js dan cara implementasi API yang cukup sulit menurut saya, selain itu saya juga belajar untuk bersyukur dengan apa yang telah saya peroleh.
+
+### 	1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut? 
+—>	Langkah yang saya gunakan dalam men-solve latihan pertama adalah dengan menambahkan potongan kode berikut :
+this.setState({
+        title: "",
+        price: 0,
+        description: "",
+        category: "",
+        quantity: 0
+, dimana setiap properti yang ada di item diubah menjadi string kosong atau 0 tergantung tipenya. 
+
+### 	2. Jelaskan fungsi dari async dan await!
+—> `async`/`await` adalah sebuah syntax khusus yang digunakan untuk bekerja dengan promise agar lebih nyaman dan mudah ketika digunakan. `async` digunakan untuk mengubah function menjadi asynchronous . Fungsi `async` akan mengembalikan sebuah promise. Sedangkan, `await` merupakan fungsi yang hanya berjalan di dalam `async`. `await` berfungsi untuk menunda sebuah kode dijalankan sampai proses `async` berhasil. `await` juga akan mengembalikan Promise, namun kode yang pada fungsi `await` ini baru dapat dijalankan ketika promise sudah resolved.
+
+### 	3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle  pada pertanyaan ini. 
+
+![shouldComponentUpdate() error](https://i.ibb.co/47KcjYY/message-Image-1638350925630.jpg)
+
+![code1](https://i.ibb.co/C1q8Sh0/Screen-Shot-2021-12-01-at-16-19-48.png)
+
+![code2](https://i.ibb.co/SnCnWQ3/Screen-Shot-2021-12-01-at-16-19-54.png)
+
+### 	4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”.  
+> - `componentDidMount`: Fungsi ini dipanggil setelah komponen selesai dirender untuk menjalankan perintah seperti mengambil data. Contoh use case menggunakan fungsi ini adalah ketika kita ingin mengubah nilai pada suatu state selama beberapa detik setelah rendering.
+> - `shouldComponentUpdate`: Fungsi ini dipanggil saat status berubah. Jika return benar, komponen dirender ulang terhadap perubahan. Namun, jika nilai yang dikembalikan salah, itu tidak akan dirender ulang. Contoh use case yang menggunakan fitur ini adalah ketika kita ingin memberi tahu React apakah output komponen tidak terpengaruh oleh status saat ini atau perubahan prop.
+> - `componentDidUpdate`: Fungsi ini dipanggil setelah komponen yang dimodifikasi selesai dirender. Contoh use case menggunakan fungsi ini adalah ketika kita ingin menjalankan suatu fungsi setelah DOM berhasil diupdate.
+> - `componentWillReceiveProps`: Fungsi ini dipanggil ketika kita ingin mengeksekusi kode sebelum komponen yang di-mount melakukan sesuatu dengan props yang baru diubah. Contoh use case menggunakan fitur ini adalah ketika kita ingin memeriksa apakah ada perubahan pada props dengan membandingkan props yang sudah ada dengan yang baru.
+> - `componentWillUnmount`: Fungsi ini dipanggil saat kita ingin mengeksekusi instruksi sebelum komponen dihapus dari DOM. Contoh kasus penggunaan yang menggunakan fitur ini adalah untuk membatalkan permintaan jaringan atau menghapus event listener.
+
+--
+
 ## Tutorial  7
 
 ### 	1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.  
